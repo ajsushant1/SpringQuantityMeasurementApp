@@ -14,13 +14,13 @@ public class QuantityMeasurementController {
     QuantityMeasurementService measurementService;
 
     @PostMapping("/addConversion")
-    public QuantityMeasurement addConversion(@RequestBody QuantityMeasurementDTO measurementDTO){
+    public QuantityMeasurement addConversion(@RequestBody QuantityMeasurementDTO measurementDTO) {
         return measurementService.addConversionValue(measurementDTO);
     }
 
     @GetMapping("/getconcersion/{unitType}/{inputUnit}/{outputUnit}/{inputValue}")
-    public double getConversion(@PathVariable String unitType,@PathVariable String inputUnit,@PathVariable String outputUnit,@PathVariable double inputValue){
-        return measurementService.getConversion(unitType,inputUnit,outputUnit,inputValue);
+    public double getConversion(@PathVariable String unitType, @PathVariable String inputUnit, @PathVariable String outputUnit, @PathVariable double inputValue) {
+        return measurementService.getConversion(unitType, inputUnit, outputUnit, inputValue);
     }
 
 }

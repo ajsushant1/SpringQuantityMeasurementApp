@@ -15,19 +15,19 @@ public class QuantityMeasurementImpl implements QuantityMeasurementService {
     //METHOD ADD CONVERSION VALUE
     @Override
     public QuantityMeasurement addConversionValue(QuantityMeasurementDTO measurement) {
-        QuantityMeasurement quantityMeasurement=new QuantityMeasurement(measurement.getConversion(),measurement.getUnitType(),measurement.getConversionValue());
-       return measurementRepository.save(quantityMeasurement);
+        QuantityMeasurement quantityMeasurement = new QuantityMeasurement(measurement.getConversion(), measurement.getUnitType(), measurement.getConversionValue());
+        return measurementRepository.save(quantityMeasurement);
     }
 
     //METHOD TO GET CONVERSION VALUE
     @Override
-    public double getConversion(String unitType,String inputUnit, String outputUnit, double inputValue) {
+    public double getConversion(String unitType, String inputUnit, String outputUnit, double inputValue) {
         if (inputUnit.equals("Celsius"))
-            return (inputValue*9/5)+32;
+            return (inputValue * 9 / 5) + 32;
         if (inputUnit.equals("Fahrenheit"))
-            return (inputValue-32)*5/9;
+            return (inputValue - 32) * 5 / 9;
         double inputUnitValue = measurementRepository.findById(inputUnit).get().getConversionValue();
         double outputUnitValue = measurementRepository.findById(outputUnit).get().getConversionValue();
-        return (inputUnitValue/outputUnitValue)*inputValue;
+        return (inputUnitValue / outputUnitValue) * inputValue;
     }
 }

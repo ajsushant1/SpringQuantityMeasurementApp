@@ -5,5 +5,6 @@ import com.bridgelabz.quantitymeasurementapp.model.QuantityMeasurement;
 
 public interface QuantityMeasurementService {
     QuantityMeasurement addConversionValue(QuantityMeasurementDTO measurement);
-    double getConversion(String unitType,String inputUnit,String outputUnit,double inputValue);
+
+    double getConversion(String unitType, String inputUnit, String outputUnit, double inputValue);
 }

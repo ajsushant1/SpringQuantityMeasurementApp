@@ -4,7 +4,7 @@ public class QuantityMeasurementDTO {
 
     String conversion;
     String unitType;
-    long conversionValue;
+    Double conversionValue;
 
     public String getConversion() {
         return conversion;
@@ -14,11 +14,11 @@ public class QuantityMeasurementDTO {
         return unitType;
     }
 
-    public long getConversionValue() {
+    public Double getConversionValue() {
         return conversionValue;
     }
 
-    public QuantityMeasurementDTO(String conversion, String unitType, long conversionValue) {
+    public QuantityMeasurementDTO(String conversion, String unitType, Double conversionValue) {
         this.conversion = conversion;
         this.unitType = unitType;
         this.conversionValue = conversionValue;

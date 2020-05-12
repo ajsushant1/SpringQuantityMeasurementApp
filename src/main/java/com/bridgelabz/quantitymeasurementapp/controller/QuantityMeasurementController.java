@@ -18,9 +18,9 @@ public class QuantityMeasurementController {
         return measurementService.addConversionValue(measurementDTO);
     }
 
-    @GetMapping("/getconcersion/{unitType}/{inputUnit}/{outputUnit}/{inputValue}")
-    public double getConversion(@PathVariable String unitType, @PathVariable String inputUnit, @PathVariable String outputUnit, @PathVariable double inputValue) {
-        return measurementService.getConversion(unitType, inputUnit, outputUnit, inputValue);
+    @GetMapping("/getconcersion/{inputUnit}/{outputUnit}/{inputValue}")
+    public double getConversion(@PathVariable String inputUnit, @PathVariable String outputUnit, @PathVariable double inputValue) {
+        return measurementService.getConversion(inputUnit, outputUnit, inputValue);
     }
 
 }

@@ -9,9 +9,9 @@ public class QuantityMeasurement {
     @Id
     String conversion;
     String unitType;
-    double conversionValue;
+    Double conversionValue;
 
-    public QuantityMeasurement(String conversion, String unitType, double conversionValue) {
+    public QuantityMeasurement(String conversion, String unitType, Double conversionValue) {
         this.conversion = conversion;
         this.unitType = unitType;
         this.conversionValue = conversionValue;
@@ -28,7 +28,7 @@ public class QuantityMeasurement {
         return unitType;
     }
 
-    public double getConversionValue() {
+    public Double getConversionValue() {
         return conversionValue;
     }
 }

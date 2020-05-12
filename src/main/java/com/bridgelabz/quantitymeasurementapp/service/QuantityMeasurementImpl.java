@@ -11,6 +11,9 @@ public class QuantityMeasurementImpl implements QuantityMeasurementService {
 
     @Autowired
     QuantityMeasurementRepository measurementRepository;
+    private final int temperatureDifference = 32;
+    private final double celsiusConversionValue = 1.8;
+    private final double fahrenheitConversionValue = 0.5556;
 
     //METHOD ADD CONVERSION VALUE
     @Override
@@ -21,11 +24,12 @@ public class QuantityMeasurementImpl implements QuantityMeasurementService {
 
     //METHOD TO GET CONVERSION VALUE
     @Override
-    public double getConversion(String unitType, String inputUnit, String outputUnit, double inputValue) {
+    public double getConversion(String inputUnit, String outputUnit, double inputValue) {
         if (inputUnit.equals("Celsius"))
-            return (inputValue * 9 / 5) + 32;
+            return (inputValue * celsiusConversionValue) + temperatureDifference;
         if (inputUnit.equals("Fahrenheit"))
-            return (inputValue - 32) * 5 / 9;
+            return (inputValue - temperatureDifference) * fahrenheitConversionValue;
+
         double inputUnitValue = measurementRepository.findById(inputUnit).get().getConversionValue();
         double outputUnitValue = measurementRepository.findById(outputUnit).get().getConversionValue();
         return (inputUnitValue / outputUnitValue) * inputValue;
